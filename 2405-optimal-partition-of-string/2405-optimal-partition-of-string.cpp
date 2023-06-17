@@ -1,19 +1,19 @@
 class Solution {
 public:
     int partitionString(string s) {
-        unordered_map<char,int>m;
+        vector<int>m(27,0);
         int ans=0;
         for(int i=0;i<s.size();i++)
         {
-            if(m.find(s[i])!=m.end())
+            if(m[s[i]-'a']==1)
             {
-                m.clear();
+                fill(m.begin(),m.end(),0);
                 ans++;
-                m[s[i]]++;
+                m[s[i]-'a']=1;
             }
-            else
+            else if(m[s[i]-'a']==0)
             {
-                m[s[i]]++;
+                m[s[i]-'a']=1;
             }
         }
         return ans+1;
