@@ -2,26 +2,20 @@ class Solution {
 public:
     int hIndex(vector<int>& citations) {
         int n=citations.size();
-        // if(n==1)
+
+        // int f=0;
+        // for(auto x: citations)
         // {
-        //     if(citations[0]==0)
-        //         return 0;
-        //     else
-        //         return 1;
+        //     if(x!=0)
+        //     {
+        //         f=1;
+        //         break;
+        //     }
         // }
-        int f=0;
-        for(auto x: citations)
-        {
-            if(x!=0)
-            {
-                f=1;
-                break;
-            }
-        }
-        if(f==0) return 0;
+        // if(f==0) return 0;
         sort(citations.begin(),citations.end());
         int low=0,high=citations.back();
-        int ans=1;
+        int ans=0;
         while(low<=high)
         {
             int mid = (low)+(high-low)/2;
