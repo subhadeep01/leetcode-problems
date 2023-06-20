@@ -24,7 +24,7 @@ class Solution {
         if(grid[n-1][m-1]==1)return 0;
         return fun(n-1, m-1, grid);
     }
-};
+}; 
 
 //{ Driver Code Starts.
 int main() {
