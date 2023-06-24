@@ -11,7 +11,9 @@ public:
         return dp[ind][prev_ind+1]=max(take,not_take); 
     }
     int lengthOfLIS(vector<int>& nums) {
-        vector<vector<int>>dp(nums.size()+1,vector<int>(nums.size()+1,-1));
+        int n=nums.size();
+        vector<vector<int>>dp(n,vector<int>(n,-1));
         return LCS(0,-1,nums,dp);
+        
     }
 };
