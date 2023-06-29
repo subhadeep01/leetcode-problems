@@ -14,15 +14,17 @@ public:
         int n=matrix.size();
         int low=matrix[0][0];
         int high=matrix[n-1][n-1];
-        while(low<high)
+        int res;
+        while(low<=high)
         {
             int mid=(low+high)>>1;
-            
             if(count(matrix,mid)<k)
                 low=mid+1;
-            else
-                high=mid;
+            else{
+                res=mid;
+                high=mid-1;
+            }
         }
-        return low;
+        return res;
     }
 };
