@@ -12,7 +12,7 @@ public:
         {
             int reserved_row=it[0]-1;
             int reserved_col=it[1]-1;
-            reserved[reserved_row] +=(1<<reserved_col);
+            reserved[reserved_row] |=(1<<reserved_col);
         }
         
         int ans=0;
