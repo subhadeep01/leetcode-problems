@@ -8,7 +8,7 @@ public:
         unordered_map<int,int>reserved; // {row,col}
         // basically it stores those rows and columns which is reserved
         
-        for(auto it: reservedSeats)
+        for(auto &it: reservedSeats)
         {
             int reserved_row=it[0]-1;
             int reserved_col=it[1]-1;
@@ -16,7 +16,7 @@ public:
         }
         
         int ans=0;
-        for(auto it : reserved)
+        for(auto &it : reserved)
         {
             int val=it.second;
             int c=0;
