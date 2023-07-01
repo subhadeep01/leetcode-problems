@@ -16,6 +16,7 @@ public:
             b[j]+=c[i];
             solve(c,i+1,b);
             b[j]-=c[i];
+            if(b[j]==0)break;
         }
         
     }
