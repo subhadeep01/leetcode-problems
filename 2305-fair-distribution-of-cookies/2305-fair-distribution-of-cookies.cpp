@@ -1,34 +1,32 @@
 class Solution {
 public:
-       int ans;
-    void solve(vector<int> &c,int i,vector<int> &b){
-        int k=b.size();
-        if(i==c.size()){
-            int mx=INT_MIN;
-            for(int j=0;j<k;j++){
-                mx=max(b[j],mx);
+    int ans=INT_MAX;
+    void solve(int ind,vector<int>&child, vector<int>& cookies, int k)
+    {
+        
+        if(ind==cookies.size())
+        {
+            int maxi=INT_MIN;
+            for(int i=0;i<k;i++)
+            {
+                maxi=max(maxi,child[i]);
             }
-            ans=min(ans,mx);
+            ans=min(ans,maxi);
             return;
         }
-        //PLEASE SUBSCRIBE AND LIKE ALSO COMMENT 
-        for(int j=0;j<k;j++){
-            b[j]+=c[i];
-            solve(c,i+1,b);
-            b[j]-=c[i];
-            if(b[j]==0)break;
+         
+        
+        for(int i=0;i<k;i++)
+        {
+            child[i]+=cookies[ind];
+            solve(ind+1,child,cookies,k);
+            child[i]-=cookies[ind];
         }
-        
     }
-    int distributeCookies(vector<int>& c, int k) {
-        
-        vector<int> bags(k,0);
-        ans=INT_MAX;
-        
-        solve(c,0,bags);
+    int distributeCookies(vector<int>& cookies, int k)
+    {
+        vector<int>child(k,0);
+        solve(0,child,cookies,k);
         return ans;
     }
-//     int distributeCookies(vector<int>& cookies, int k) {
-        
-//     }
 };
