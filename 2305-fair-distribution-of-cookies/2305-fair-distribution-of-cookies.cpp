@@ -21,6 +21,7 @@ public:
             child[i]+=cookies[ind];
             solve(ind+1,child,cookies,k);
             child[i]-=cookies[ind];
+            if(child[i]==0)break;
         }
     }
     int distributeCookies(vector<int>& cookies, int k)
