@@ -14,7 +14,8 @@ public:
           }
         
         
-         
+          // if we dont take the current request
+          f(i+1,requests,person,request_accepted);
           //if we take current request
           person[requests[i][0]]--;
           person[requests[i][1]]++;
@@ -23,10 +24,6 @@ public:
           //backtrack;
           person[requests[i][0]]++;
           person[requests[i][1]]--;
-        
-        
-          // if we dont take the current request
-          f(i+1,requests,person,request_accepted);
     }
     int maximumRequests(int n, vector<vector<int>>& requests) {
         vector<int>person(n,0);
