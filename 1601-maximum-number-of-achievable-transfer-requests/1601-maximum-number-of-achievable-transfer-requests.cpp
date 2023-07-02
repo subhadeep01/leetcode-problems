@@ -14,9 +14,11 @@ public:
           }
         
         
+          if(requests[i][0]!=requests[i][1])// optimisation
           // if we dont take the current request
           f(i+1,requests,person,request_accepted);
           //if we take current request
+        
           person[requests[i][0]]--;
           person[requests[i][1]]++;
           f(i+1,requests,person,request_accepted+1);
