@@ -8,11 +8,7 @@ public:
         while(j<n)
         {
             s+=nums[j];
-            if(s<target)
-            {
-                j++;
-            }
-            else
+            if(s>=target)
             {
                while(s>=target)
                {
@@ -20,9 +16,8 @@ public:
                    i++;
                }
               ans=min(ans,j-i+2);
-                j++;
             }
-      
+            j++;
         }
         return (ans==INT_MAX)?0:ans;
     }
