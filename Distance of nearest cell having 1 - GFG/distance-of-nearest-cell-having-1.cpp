@@ -42,7 +42,7 @@ class Solution
 	            {
 	                int x=row+dx[i];
 	                int y=col+dy[i];
-	                if(x>=0 && x<n && y>=0 && y<=m && visited[x][y]==0)
+	                if(x>=0 && x<n && y>=0 && y<m && visited[x][y]==0)
 	                {
 	                    q.push({{x,y},distance+1});
 	                    visited[x][y]=1;
