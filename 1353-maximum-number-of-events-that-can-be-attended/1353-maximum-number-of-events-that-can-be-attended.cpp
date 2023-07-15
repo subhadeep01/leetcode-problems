@@ -4,8 +4,7 @@ public:
     {
         if(a[1]<b[1]) return true;
         if(a[1]>b[1])return false;
-        if(a[0]<b[0]) return true;
-        return false;
+        return (a[0]<b[0]);
     }
     int maxEvents(vector<vector<int>>& events) {
         int no_of_events=events.size();
