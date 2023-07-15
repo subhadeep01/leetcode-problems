@@ -13,7 +13,8 @@ public:
         // if end is equal sort them according to their start time
         int ans=0;
         set<int>days;
-        for(int i=1;i<=100000;i++)
+        int lim=events.back()[1];
+        for(int i=1;i<=lim;i++)
         days.insert(i);
         for(auto event: events)
         {
