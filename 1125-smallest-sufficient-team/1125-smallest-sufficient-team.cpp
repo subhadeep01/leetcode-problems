@@ -5,7 +5,7 @@ public:
 int req_mask, m;
 vector<int> smallestSufficientTeam(vector<string>& req_skills, vector<vector<string>>&
 people_skills) {
-int n = req_skills.size();
+int n = req_skills.size();  
 m = people_skills.size();
 unordered_map<string, int> skills;
 for (int i = 0; i < n; ++i)
@@ -48,4 +48,4 @@ if (ans1 < ans2)
 choice[mask][i] = 1;
 return ans = min(ans1, ans2);
 }
-}; // Not done by me
+}; // Not done by me :(
