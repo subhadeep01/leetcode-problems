@@ -19,14 +19,14 @@ public:
         if(root==NULL) return;
         f(root->left,k);
         v.push_back(root->val);
-        c++;
-        if(c==k)
-        ans=root->val;
+        // c++;
+        // if(c==k)
+        // ans=root->val;
         f(root->right,k);
     }
     int kthSmallest(TreeNode* root, int k) {
         if(root==NULL)return 0;
         f(root,k);
-        return ans;
+        return v[k-1];
     }
 };
