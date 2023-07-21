@@ -6,6 +6,8 @@ public:
             return a[0] < b[0] || (a[0] == b[0] && a[1] > b[1]);
         });
 
+
+
         // we have to do it in O(nlogn) by binary search
         vector<int>temp;
         temp.push_back(envelopes[0][1]);
