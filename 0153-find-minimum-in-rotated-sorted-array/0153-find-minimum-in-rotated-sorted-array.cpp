@@ -6,13 +6,16 @@ public:
         while(low<=high)
         {
            int mid=(low+high)/2;
-            if(nums[mid]>=nums[high])
+           if(nums[mid]>=nums[low]) // left sorted
+           {
+             res=min(res,nums[low]);
+               low=mid+1;
+           }
+            else
             {
                 res=min(res,nums[mid]);
-                low=mid+1;
+                high=mid-1;
             }
-            else
-                high=mid;
         }
         return res;
         // int lo=0,hi=nums.size()-1;
