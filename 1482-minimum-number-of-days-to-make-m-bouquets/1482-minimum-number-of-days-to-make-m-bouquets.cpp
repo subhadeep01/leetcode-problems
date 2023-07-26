@@ -23,7 +23,6 @@ public:
             }
            
         }
-        
         return (ans>=m);
     }
     int minDays(vector<int>& bloomDay, int m, int k) {
@@ -34,7 +33,7 @@ public:
         while(low<=high)
         {
             int mid=low+(high-low)/2;
-            if(check(mid,bloomDay,m,k)==1)
+            if(check(mid,bloomDay,m,k))
             {
                 ans=mid;
                 high=mid-1;
