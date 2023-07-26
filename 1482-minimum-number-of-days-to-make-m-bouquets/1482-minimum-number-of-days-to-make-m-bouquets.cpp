@@ -30,7 +30,7 @@ public:
         int n=bloomDay.size();
         if((n/m)<k) return -1;
         int low=1,high=*max_element(bloomDay.begin(),bloomDay.end());
-        int ans=INT_MAX;
+        int ans;
         while(low<=high)
         {
             int mid=low+(high-low)/2;
@@ -42,7 +42,6 @@ public:
             else
                 low=mid+1;
         }
-        if(ans==INT_MAX) return -1;
         return ans;
     }
 };
