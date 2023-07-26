@@ -5,24 +5,41 @@ public:
         int l=0,r=0;
         int n=bloomDay.size();
         int ans=0;
+        //its also working fine
+//         while(r<n)
+//         {        
+//             if(bloomDay[r]<=mid)
+//             {
+//                 r++;
+//             }
+//             else
+//             {
+//                 r++;
+//                 l=r;
+//             }
+//             if((r-l)==k)
+//             {
+//                ans++;
+//                l=r;
+//             }
+           
+//         }
+        
+        int c=0;
         while(r<n)
-        {        
+        {
             if(bloomDay[r]<=mid)
             {
-                r++;
+                c++;
             }
             else
             {
-                r++;
-                l=r;
+                ans+=(c/k);
+                c=0;
             }
-            if((r-l)==k)
-            {
-               ans++;
-               l=r;
-            }
-           
+            r++;
         }
+        ans+=(c/k);
         return (ans>=m);
     }
     int minDays(vector<int>& bloomDay, int m, int k) {
