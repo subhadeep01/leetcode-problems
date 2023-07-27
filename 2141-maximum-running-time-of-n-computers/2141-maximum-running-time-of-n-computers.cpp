@@ -23,7 +23,7 @@ public:
     }
     long long maxRunTime(int n, vector<int>& batteries) {
        sort(batteries.rbegin(),batteries.rend());
-       long long low=1,high=1e18;
+       long long low=1,high=1e16;
        long long ans=1;
        while(low<=high)
        {
