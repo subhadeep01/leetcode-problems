@@ -4,16 +4,17 @@ public:
     bool check(ll x, vector<int>&batteries, int n)
     {
         ll c=0;
-        ll ind=-INT_MAX;
+        ll ind=-1;
         for(int i=0;i<batteries.size();i++)
         {
             if(batteries[i]<x)
             {
-                if(ind==-INT_MAX) ind=i;
+                if(ind==-1) 
+                ind=i;
                 c+=batteries[i];
             }
         }
-        if(ind==-INT_MAX) return 1;
+        if(ind==-1) return 1;
         if(n>ind)
         {
         ll ans=c/(n-ind);
@@ -30,7 +31,7 @@ public:
            long long mid=low+(high-low)/2;
            if(check(mid,batteries,n))
            {
-               ans=max(ans,mid);
+               ans=mid;
                low=mid+1;
            }
            else
