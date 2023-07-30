@@ -1,34 +1,26 @@
 class Solution {
 public:
- int solve(int left, int right, vector<vector<int>>&dp, string &s)
- {
-            if (dp[left][right] != -1) {
-                return dp[left][right];
-            }
-            
-            dp[left][right] = s.size();
-            int j = -1;
-            
-            for (int i = left; i < right; i++) {
-                if (s[i] != s[right] && j == -1) {
-                    j = i;
-                }
-                
-                if (j != -1) {
-                    dp[left][right] = min(dp[left][right], 1 + solve(j, i, dp, s) + solve(i + 1, right, dp, s));
-                }
-            }
-            
-            if (j == -1) {
-                dp[left][right] = 0;
-            }
-            
-            return dp[left][right];
-        }
-    int strangePrinter(string s) {
+     int solve(int i, int j, vector<vector<int>>&dp, string &s)
+     {
+         if(i==j) return 1;
+         
+         if(dp[i][j]!=-1) return dp[i][j];
+         
+         int ans=INT_MAX;
+         
+         for(int k=i;k<j;k++)
+         {
+             ans = min(ans,solve(i,k,dp,s) + solve(k+1,j,dp,s));
+         }
+         
+         return dp[i][j]=((s[i]==s[j])?ans-1:ans);
+               
+     }
+    int strangePrinter(string s) 
+    {
          int n = s.size();
-        vector<vector<int>>dp(n, vector<int>(n, -1));
-         return solve(0, n - 1, dp, s) + 1;
+         vector<vector<int>>dp(n, vector<int>(n, -1));
+         return solve(0, n - 1, dp, s);
         
     }
 };
