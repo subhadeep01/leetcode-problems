@@ -2,18 +2,22 @@ class Solution {
 public:
     set<string>ans;
     map<char,string>mp;
-    void f(string digits, int n, string output)
+    void f(string &digits, int n, string &output)
     {
-        if(digits.size()==0)
+        if(n==digits.size())
         {
             ans.insert(output);
             return;
         }
         
-        for(int i=0;i<mp[digits[0]].size();i++)
+        for(int i=0;i<mp[digits[n]].size();i++)
         {
-            for(auto x: mp[digits[0]])
-            f(digits.substr(1), n, output+x);
+            for(auto x: mp[digits[n]])
+            {
+                output.push_back(x);
+                f(digits, n+1, output);
+                output.pop_back();
+            }
         }
         
     }
@@ -31,7 +35,7 @@ mp['9'] = {'w', 'x', 'y', 'z'};
         string output="";
         vector<string>res;
         if(n==0) return res;
-        f(digits, n, output);
+        f(digits, 0, output);
         
     while(ans.size())
     {
