@@ -1,35 +1,43 @@
 class Solution {
 public:
-    void f(int index, string &digits, string &temp, vector<string> &ans, unordered_map<char,string>&m)
+    set<string>ans;
+    map<char,string>mp;
+    void f(string digits, int n, string output)
     {
-        if(index==digits.size())
+        if(digits.size()==0)
         {
-            ans.push_back(temp);
+            ans.insert(output);
             return;
         }
         
-        string str=m[digits[index]];
-        for(int i=0;i<str.size();i++)
+        for(int i=0;i<mp[digits[0]].size();i++)
         {
-            temp.push_back(str[i]);
-            f(index+1,digits,temp,ans,m);
-            temp.pop_back();
+            for(auto x: mp[digits[0]])
+            f(digits.substr(1), n, output+x);
         }
+        
     }
     vector<string> letterCombinations(string digits) {
-        unordered_map<char,string>m;
-        m['2']="abc";
-        m['3']="def";
-        m['4']="ghi";
-        m['5']="jkl";
-        m['6']="mno";
-        m['7']="pqrs";
-        m['8']="tuv";
-        m['9']="wxyz";
-        vector<string>ans;
-        if(digits.size()==0) return ans;
-        string temp;
-        f(0,digits,temp,ans,m);
-        return ans;
+        int n=digits.size();
+      mp['2'] = {'a', 'b', 'c'};
+mp['3'] = {'d', 'e', 'f'};
+mp['4'] = {'g', 'h', 'i'};
+mp['5'] = {'j', 'k', 'l'};
+mp['6'] = {'m', 'n', 'o'};
+mp['7'] = {'p', 'q', 'r', 's'};
+mp['8'] = {'t', 'u', 'v'};
+mp['9'] = {'w', 'x', 'y', 'z'};
+
+        string output="";
+        vector<string>res;
+        if(n==0) return res;
+        f(digits, n, output);
+        
+    while(ans.size())
+    {
+        res.push_back(*ans.begin());
+        ans.erase(ans.find(*ans.begin()));
+    }
+        return res;
     }
 };
