@@ -26,6 +26,7 @@ public:
         // vector<vector<int>>dp(n+1,vector<int>(n+1,0));
         // return f(stones,0,1,dp);
         unordered_map<int,set<int>>m;
+        // curr stone, no of possible jumps
         m[stones[0]].insert(1);
         for(int i=0;i<n;i++)
         {
@@ -48,6 +49,5 @@ public:
                
         }
         return false;
-        return true;
     }
 };
